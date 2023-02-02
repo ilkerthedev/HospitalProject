@@ -19,6 +19,7 @@ public class Doctors extends Users {
 
     }
 
+
     public Doctors(Titles title, Branches branch, DoctorSituation doctorSituation) {
         this.title = title;
         this.branch = branch;
@@ -71,11 +72,34 @@ public class Doctors extends Users {
     //Izinli,Ameliyatta,Müsait,Muayenede
 
     public void fillDoctorList() {
-        Doctors doctor1 = new Doctors("DR500", "Ayhan", "Kaya", title.getTitleById(10), branch.getBranchById(101), doctorSituation.getDoctorSituationById(20));
-        Doctors doctor2 = new Doctors("DR501", "Selma", "Can",  title.getTitleById(10), branch.getBranchById(102), doctorSituation.getDoctorSituationById(22));
-        Doctors doctor3 = new Doctors("DR502", "Kerim", "Atilgan",  title.getTitleById(11), branch.getBranchById(103), doctorSituation.getDoctorSituationById(22));
-        Doctors doctor4 = new Doctors("DR503", "Selim", "Uygun",  title.getTitleById(12), branch.getBranchById(104), doctorSituation.getDoctorSituationById(23));
-        Doctors doctor5 = new Doctors("DR504", "Fatma", "Tasdemir",  title.getTitleById(13), branch.getBranchById(100), doctorSituation.getDoctorSituationById(21));
+
+
+
+        Doctors doctor1 = new Doctors("DR500", "Ayhan", "Kaya", Titles.getTitleById(10), Branches.getBranchById(101), DoctorSituation.getDoctorSituationById(22));
+        Doctors doctor2 = new Doctors("DR501", "Selma", "Can", Titles.getTitleById(10), Branches.getBranchById(102), DoctorSituation.getDoctorSituationById(22));
+        Doctors doctor3 = new Doctors("DR502", "Kerim", "Atilgan", Titles.getTitleById(11), Branches.getBranchById(103), DoctorSituation.getDoctorSituationById(22));
+        Doctors doctor4 = new Doctors("DR503", "Selim", "Uygun", Titles.getTitleById(12), Branches.getBranchById(104), DoctorSituation.getDoctorSituationById(23));
+        Doctors doctor5 = new Doctors("DR504", "Fatma", "Tasdemir", Titles.getTitleById(13), Branches.getBranchById(100), DoctorSituation.getDoctorSituationById(21));
+
+        doctorsList.add(doctor1);
+        doctorsList.add(doctor2);
+        doctorsList.add(doctor3);
+        doctorsList.add(doctor4);
+        doctorsList.add(doctor5);
+
+    }
+
+    @Override
+    public void showUsers() {
+        System.out.println();
+        System.out.println("////////////////////////////////////// DOKTOR LISTESI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \n");
+        System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "Doktor Kodu", "Doktor Ad", "Doktor Soyad", "Ünvan", "Brans", "Doktor Durum");
+        System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "------------", "-------------", "-------------", "-----------------", "---------------", "-----------");
+        for (Doctors w : doctorsList) {
+            System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", w.getId(), w.getFirstName(), w.getLastName(), w.getTitle(), w.getBranch(), w.getDoctorSituation());
+        }
+        System.out.println();
+
     }
 
 }
