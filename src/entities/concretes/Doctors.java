@@ -94,7 +94,7 @@ public class Doctors extends Users {
         System.out.println();
         System.out.println("////////////////////////////////////// DOKTOR LISTESI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \n");
         System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "Doktor Kodu", "Doktor Ad", "Doktor Soyad", "Ünvan", "Brans", "Doktor Durum");
-        System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "------------", "-------------", "-------------", "-----------------", "---------------", "-----------");
+        System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "------------", "--------", "------------", "-----", "-----", "-----------");
         for (Doctors w : doctorsList) {
             System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", w.getId(), w.getFirstName(), w.getLastName(), w.getTitle(), w.getBranch(), w.getDoctorSituation());
         }
