@@ -1,5 +1,8 @@
 package application.console.concretes;
 
+import business.concretes.DoctorMenuManager;
+import core.helpers.Slow;
+
 import java.util.Scanner;
 
 public class Start {
@@ -8,22 +11,26 @@ public class Start {
 
         Scanner inp = new Scanner(System.in);
 
+        DoctorMenuManager dmm = new DoctorMenuManager();
+
         int select;
 
         do {
-            System.out.println("========== DEVKENT HASTANE UYGULAMAMIZA HOSGELDINIZ ==========\n");
-            System.out.println("1-Doktor Menü Seçimi");
-            System.out.println("2-Hasta Menü Seçimi");
+            System.out.println();
+            String message =    "========== DEVKENT HASTANESI UYGULAMAMIZA HOSGELDINIZ ==========\n";
+            Slow.slowPrint(message,10);
+            System.out.println("1-Doktor Menüsü Seçimi");
+            System.out.println("2-Hasta Menüsü Seçimi");
             System.out.println("0-Çıkış");
 
             select = inp.nextInt();
 
             switch (select){
                 case 1:
-                    //doktor
+                    dmm.getSelectionMenu();
                     break;
                 case 2:
-                    //hasta
+                    //HastaMenü
                     break;
                 case 0:
                     break;
@@ -32,9 +39,11 @@ public class Start {
                     break;
             }
 
+
+
         }while(select != 0);
 
-        System.out.println("İyi günler, sağlıklı günler dileriz...");
+        System.out.println("İyi günler, saglikli günler dileriz...");
     }
 
 }
