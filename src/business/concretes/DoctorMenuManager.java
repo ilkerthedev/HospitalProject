@@ -12,12 +12,14 @@ import java.util.Scanner;
 
 import static entities.concretes.Branches.branchesList;
 import static entities.concretes.DoctorSituation.situationList;
+import static entities.concretes.Doctors.doctorsList;
 import static entities.concretes.Titles.titlesList;
 
 public class DoctorMenuManager extends MenuManager implements MenuService {
 
     Scanner inp = new Scanner(System.in);
     Doctors doctors = new Doctors();
+    DoctorManager doctorManager = new DoctorManager();
     Titles titles = new Titles();
     public static Branches branches = new Branches();
     DoctorSituation doctorSituation = new DoctorSituation();
@@ -46,10 +48,12 @@ public class DoctorMenuManager extends MenuManager implements MenuService {
 
             switch (select) {
                 case 1:
-
+                    addUser();
                     break;
                 case 2:
-
+                    System.out.println("Doktor silme menüsüne hoşgeldiniz...");
+                    doctors.showUsers();
+                    removeUser();
                     break;
                 case 3:
                     this.getUserList();
@@ -87,10 +91,10 @@ public class DoctorMenuManager extends MenuManager implements MenuService {
             System.out.println("Hangi doktor durumuna göre arama yapmak istiyorsunuz?");
             situationList.stream().forEach(t->System.out.println("Id:"+t.getId()+" --> "+t.getSituation()));
             System.out.println("\nDurumun id'sini giriniz: ");
-            id = inp.next().replaceAll("[^0-9]","");
+            id = inp.nextLine().replaceAll("[^0-9]","");
             System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "Doktor Kodu", "Doktor Ad", "Doktor Soyad", "Ünvan", "Brans", "Doktor Durum");
             System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "------------", "--------", "------------", "-----", "-----", "-----------");
-              for (Doctors w:doctors.doctorsList){
+              for (Doctors w: doctorsList){
                   if (w.getDoctorSituation().getId()==Integer.parseInt(id)){
                       flag++;
                       System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", w.getId(), w.getFirstName(), w.getLastName(), w.getTitle(), w.getBranch(), w.getDoctorSituation());
@@ -100,10 +104,10 @@ public class DoctorMenuManager extends MenuManager implements MenuService {
             System.out.println("Hangi branşa göre arama yapmak istiyorsunuz?");
             branchesList.stream().forEach(t-> System.out.println("Id:"+t.getId()+" --> "+t.getBranch()));
             System.out.println("\nBranş id'sini giriniz: ");
-            id = inp.next().replaceAll("[^0-9]","");
+            id = inp.nextLine().replaceAll("[^0-9]","");
             System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "Doktor Kodu", "Doktor Ad", "Doktor Soyad", "Ünvan", "Brans", "Doktor Durum");
             System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "------------", "--------", "------------", "-----", "-----", "-----------");
-            for (Doctors w:doctors.doctorsList){
+            for (Doctors w: doctorsList){
                 if (w.getBranch().getId()==Integer.parseInt(id)){
                     flag++;
                     System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", w.getId(), w.getFirstName(), w.getLastName(), w.getTitle(), w.getBranch(), w.getDoctorSituation());
@@ -115,10 +119,10 @@ public class DoctorMenuManager extends MenuManager implements MenuService {
             System.out.println("Hangi ünvana göre arama yapmak istiyorsunuz?");
             titlesList.stream().forEach(t-> System.out.println("Id:"+t.getId()+" --> "+t.getTittle()));
             System.out.println("\nÜnvan id'sini giriniz: ");
-            id = inp.next().replaceAll("[^0-9]","");
+            id = inp.nextLine().replaceAll("[^0-9]","");
             System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "Doktor Kodu", "Doktor Ad", "Doktor Soyad", "Ünvan", "Brans", "Doktor Durum");
             System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", "------------", "--------", "------------", "-----", "-----", "-----------");
-            for (Doctors w:doctors.doctorsList){
+            for (Doctors w: doctorsList){
                 if (w.getTitle().getId()==Integer.parseInt(id)){
                     flag++;
                     System.out.printf("%-13s  %-15s  %-15s  %-17s  %-15s  %-12s \n", w.getId(), w.getFirstName(), w.getLastName(), w.getTitle(), w.getBranch(), w.getDoctorSituation());
@@ -132,17 +136,32 @@ public class DoctorMenuManager extends MenuManager implements MenuService {
             System.out.println("Aradığınız kriterde "+flag+" tane doktor bulundu...");
         }
 
-
-
     }
 
     @Override
     public void addUser() {
-
+        System.out.println("Doktor ekleme menüsüne hoşgeldiniz...");
+        doctorManager.addDoctorToList();
     }
 
     @Override
     public void removeUser() {
+        String select = "q";
+        do {
+            inp.nextLine();//dummy
+            System.out.println("Lütfen silmek istediğiniz doktorun id sini giriniz: ");
+            String id = inp.nextLine().replaceAll("[^A-Z0-9]","");
+            Doctors doctorToDelete = Doctors.getDoctorById(id);
+            if (doctorToDelete==null){
+                System.out.println("Geçersiz bir id giriniz!");
+                System.out.println("Bir üst menüye çıkmak için 'Q', devam etmek için herhangi bir tuşa basınız: ");
+                select = inp.next();
+            }else {
+                System.out.println("Doktor başarıyla silinmiştir...");
+                System.out.println(doctorToDelete);
+                doctorsList.remove(doctorToDelete);
+            }
+        }while (!select.equalsIgnoreCase("q"));
 
     }
 

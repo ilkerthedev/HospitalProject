@@ -1,19 +1,20 @@
 package entities.concretes;
 
+import core.helpers.IdMaker;
 import entities.abstracts.Users;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Doctors extends Users {
+public class Doctors extends Users{
 
     private Titles title;
     private Branches branch;
     private DoctorSituation doctorSituation;
 
 
-    public List<Doctors> doctorsList = new ArrayList<>();
+    public static List<Doctors> doctorsList = new ArrayList<>();
 
     public Doctors() {
 
@@ -61,9 +62,9 @@ public class Doctors extends Users {
     public String toString() {
         return
                 "id=" + super.getId() +
-                        ",adi=" + super.getFirstName() +
-                        ",soyadi=" + super.getLastName() +
-                        ",ünvani=" + title +
+                        ", adi=" + super.getFirstName() +
+                        ", soyadi=" + super.getLastName() +
+                        ", ünvani=" + title +
                         ", bransi=" + branch +
                         ", doktor durumu=" + doctorSituation;
     }
@@ -100,6 +101,15 @@ public class Doctors extends Users {
         }
         System.out.println();
 
+    }
+
+    public static Doctors getDoctorById(String id){
+        for (Doctors w:doctorsList){
+            if (w.getId().equals(id)){
+                return w;
+            }
+        }
+        return null;
     }
 
 }
