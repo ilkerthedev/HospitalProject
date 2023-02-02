@@ -3,16 +3,16 @@ package entities.abstracts;
 public abstract class Users {
 
     private String id;
-    private String firstName;
-    private String lastName;
+    private String FirstName;
+    private String LastName;
 
     public Users() {
     }
 
     public Users(String id, String firstName, String lastName) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        FirstName = firstName;
+        LastName = lastName;
     }
 
     public String getId() {
@@ -24,19 +24,19 @@ public abstract class Users {
     }
 
     public String getFirstName() {
-        return firstName;
+        return FirstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        FirstName = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return LastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        LastName = lastName;
     }
 
 
