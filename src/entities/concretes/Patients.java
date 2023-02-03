@@ -1,6 +1,6 @@
 package entities.concretes;
 
-import core.helpers.Gender;
+import core.Helpers.Gender;
 import entities.abstracts.Users;
 
 
@@ -16,6 +16,7 @@ public class Patients extends Users {
     private Priorities priority;
     private Complaints complaint;
     private LastStatuses lastStatus;
+    //private LocalDate appointmentDate;
     public static List<Patients> patientsList = new ArrayList<>();
 
     public Patients(){
@@ -109,8 +110,7 @@ public class Patients extends Users {
         System.out.println();
         System.out.println("////////////////////////////////////// HASTA LISTESI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \n");
         System.out.printf("%-14s  %-15s  %-15s  %-14s  %-14s  %-9s  %-13s %-14s %-16s\n","Randevu Kodu","Hasta Ad","Hasta Soyad","TC NO","Dogum Tarihi","Cinsiyet","Aciliyet","Sikayet","Islem Durumu");
-        System.out.printf("%-14s  %-15s  %-15s  %-14s  %-14s  %-9s  %-13s %-14s %-16s\n","------------","--------","-----------","-----","------------","--------","--------","-------","------------");
-        for (Patients w :patientsList){
+        System.out.printf("%-14s  %-15s  %-15s  %-14s  %-14s  %-9s  %-13s %-14s %-16s\n","----------","--------","-----------","-----","------------","--------","--------","-------","------------"); for (Patients w :patientsList){
             System.out.printf("%-14s  %-15s  %-15s  %-14s  %-14s  %-9s  %-13s %-14s %-16s\n",w.getId(),w.getFirstName(),w.getLastName(),w.getTcNo(),w.getBirthDate() ,w.getGender(),w.getPriority(),w.getComplaint(),w.getLastStatus());
         }
         System.out.println();

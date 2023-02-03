@@ -1,4 +1,4 @@
-package core.helpers;
+package core.Helpers;
 
 import java.util.InputMismatchException;
 
