@@ -76,11 +76,11 @@ public class Doctors extends Users{
 
 
 
-        Doctors doctor1 = new Doctors("DR500", "Ayhan", "Kaya", Titles.getTitleById(10), Branches.getBranchById(101), DoctorSituation.getDoctorSituationById(22));
-        Doctors doctor2 = new Doctors("DR501", "Selma", "Can", Titles.getTitleById(10), Branches.getBranchById(102), DoctorSituation.getDoctorSituationById(22));
-        Doctors doctor3 = new Doctors("DR502", "Kerim", "Atilgan", Titles.getTitleById(11), Branches.getBranchById(103), DoctorSituation.getDoctorSituationById(22));
-        Doctors doctor4 = new Doctors("DR503", "Selim", "Uygun", Titles.getTitleById(12), Branches.getBranchById(104), DoctorSituation.getDoctorSituationById(23));
-        Doctors doctor5 = new Doctors("DR504", "Fatma", "Tasdemir", Titles.getTitleById(13), Branches.getBranchById(100), DoctorSituation.getDoctorSituationById(21));
+        Doctors doctor1 = new Doctors("DR500111", "Ayhan", "Kaya", Titles.getTitleById(10), Branches.getBranchById(101), DoctorSituation.getDoctorSituationById(22));
+        Doctors doctor2 = new Doctors("DR501222", "Selma", "Can", Titles.getTitleById(10), Branches.getBranchById(102), DoctorSituation.getDoctorSituationById(22));
+        Doctors doctor3 = new Doctors("DR502333", "Kerim", "Atilgan", Titles.getTitleById(11), Branches.getBranchById(103), DoctorSituation.getDoctorSituationById(22));
+        Doctors doctor4 = new Doctors("DR503444", "Selim", "Uygun", Titles.getTitleById(12), Branches.getBranchById(104), DoctorSituation.getDoctorSituationById(23));
+        Doctors doctor5 = new Doctors("DR504555", "Fatma", "Tasdemir", Titles.getTitleById(13), Branches.getBranchById(100), DoctorSituation.getDoctorSituationById(21));
 
         doctorsList.add(doctor1);
         doctorsList.add(doctor2);

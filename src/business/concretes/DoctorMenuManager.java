@@ -44,6 +44,7 @@ public class DoctorMenuManager extends MenuManager implements MenuService {
             System.out.println("6-Ünvana Göre Arama "); //(Pratisyen,Uzman,Cerrah)
             System.out.println("7-Ana Menu ");
             System.out.println("0-CIKIS");
+            System.out.println("\nSeçiminiz: ");
             select = inp.nextInt();
 
             switch (select) {
@@ -71,6 +72,8 @@ public class DoctorMenuManager extends MenuManager implements MenuService {
                     Start.start();
                     break;
                 case 0:
+                    String s = "İyi günler, saglikli günler dileriz...";
+                    Slow.slowPrint(s,30);
                     System.exit(0);
             }
         }while (select!=0);
@@ -85,6 +88,7 @@ public class DoctorMenuManager extends MenuManager implements MenuService {
 
     @Override
     public void search(int choise) {
+        inp.nextLine();
         String id = "0";
         int flag = 0;
         if (choise==1){

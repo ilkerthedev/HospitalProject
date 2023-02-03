@@ -12,6 +12,7 @@ public class Start {
         Scanner inp = new Scanner(System.in);
 
         DoctorMenuManager dmm = new DoctorMenuManager();
+        String s = "İyi günler, saglikli günler dileriz...";
 
         int select;
 
@@ -22,6 +23,7 @@ public class Start {
             System.out.println("1-Doktor Menüsü Seçimi");
             System.out.println("2-Hasta Menüsü Seçimi");
             System.out.println("0-Çıkış");
+            System.out.println("\nSeçiminiz: ");
 
             select = inp.nextInt();
 
@@ -33,6 +35,8 @@ public class Start {
                     //HastaMenü
                     break;
                 case 0:
+                    Slow.slowPrint(s,30);
+                    System.exit(0);
                     break;
                 default:
                     System.out.println("Hatalı giriş yaptınız!");
@@ -41,9 +45,8 @@ public class Start {
 
 
 
-        }while(select != 0);
+        }while(true);
 
-        System.out.println("İyi günler, saglikli günler dileriz...");
     }
 
 }
