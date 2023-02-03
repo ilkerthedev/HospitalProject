@@ -167,6 +167,7 @@ public class PatientMenuManager extends MenuManager implements MenuService {
 
 
         } else if (choise == 3) {
+            inp.nextLine();
             System.out.println("Hangi TC NO'ya göre arama yapmak istiyorsunuz?");
             patientsList.
                     forEach(t -> System.out.println("TC No: " + t.getTcNo() +  " --> "   + t.getId() + " "+ t.getFirstName() + " "+ t.getLastName() + " " ));
