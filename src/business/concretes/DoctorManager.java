@@ -1,7 +1,6 @@
 package business.concretes;
 
 import core.helpers.IdMaker;
-import core.validations.DateValidator;
 import core.validations.NameValidator;
 import core.validations.TcNoValidator;
 import entities.concretes.Branches;
@@ -25,7 +24,7 @@ public class DoctorManager implements IdMaker {
     NameValidator nameValidator = new NameValidator();
     TcNoValidator tcNoValidator = new TcNoValidator();
 
-    private static int drIdCounter = 504;
+    private static int drIdCounter = 557;
 
     @Override
     public String idMaker(String number) {
@@ -39,15 +38,20 @@ public class DoctorManager implements IdMaker {
     void addDoctorToList() {
         System.out.println("Lütfen eklemek istediğiniz doktorun adını giriniz: ");
         doctors.setFirstName(nameValidator.isValidFirstName());
+
         System.out.println("Lütfen eklemek istediğiniz doktorun soyadını giriniz: ");
         doctors.setLastName(nameValidator.isValidFirstName());
+
         System.out.println("Lütfen eklemek istediğiniz doktorun kimlik numarasını giriniz: ");
         String tc = tcNoValidator.getValidTcNumber();
+
 //        System.out.println("Lütfen eklemek istediğiniz doktorun doğum tarihini giriniz: "); eklenebilir
         System.out.println("Lütfen eklemek istediğiniz doktorun üvanını seçiniz: ");
-        titlesList.stream().forEach(t -> System.out.println("Id:" + t.getId() + " --> " + t.getTittle()));
+        titlesList.forEach(t -> System.out.println("Id: " + t.getId() + " --> " + t.getTittle()));
+
         System.out.println("\nÜnvan id'sini giriniz: ");
         String titleId = inp.nextLine().replaceAll("[^0-9]", "");
+
         Titles title = Titles.getTitleById(Integer.parseInt(titleId));
         if (title == null) {
             System.out.println("Geçersiz id girdiniz!");
@@ -56,7 +60,8 @@ public class DoctorManager implements IdMaker {
         }
         doctors.setTitle(title);
         System.out.println("Lütfen eklemek istediğiniz doktorun branşını seçiniz: ");
-        branchesList.stream().forEach(t -> System.out.println("Id:" + t.getId() + " --> " + t.getBranch()));
+        branchesList.forEach(t -> System.out.println("Id: " + t.getId() + " --> " + t.getBranch()));
+
         System.out.println("\nBranş id'sini giriniz: ");
         String branchId = inp.nextLine().replaceAll("[^0-9]", "");
         Branches branch = Branches.getBranchById(Integer.parseInt(branchId));
@@ -73,6 +78,7 @@ public class DoctorManager implements IdMaker {
         doctorsList.add(newDoctor);
         System.out.println("Doktor başarıyla eklenmiştir...");
         System.out.println(newDoctor);
+
     }
 
 }
