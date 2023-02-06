@@ -3,7 +3,7 @@ package application.console.concretes;
 import business.concretes.AppointmentMenuManager;
 import business.concretes.DoctorMenuManager;
 import business.concretes.PatientMenuManager;
-import core.Helpers.Slow;
+import core.helpers.Slow;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
