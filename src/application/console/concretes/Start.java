@@ -1,8 +1,9 @@
 package application.console.concretes;
 
+import business.concretes.AppointmentMenuManager;
 import business.concretes.DoctorMenuManager;
 import business.concretes.PatientMenuManager;
-import core.helpers.Slow;
+import core.Helpers.Slow;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -15,6 +16,7 @@ public class Start {
 
         DoctorMenuManager dmm = new DoctorMenuManager();
         PatientMenuManager pmm = new PatientMenuManager();
+        AppointmentMenuManager apm = new AppointmentMenuManager();
 
         String s = "İyi günler, saglikli günler dileriz...";
 
@@ -26,6 +28,7 @@ public class Start {
             Slow.slowPrint(message,10);
             System.out.println("1-Doktor Menüsü Seçimi");
             System.out.println("2-Hasta Menüsü Seçimi");
+            System.out.println("3-Randevu Menüsü Seçimi");
             System.out.println("0-Çıkış");
             System.out.println("\nSeçiminiz: ");
 
@@ -44,7 +47,11 @@ public class Start {
                 case 2:
                     pmm.getSelectionMenu();
                     break;
+                case 3:
+                    apm.getSelectionMenu();
+                    break;
                 case 0:
+
                     Slow.slowPrint(s,30);
                     System.exit(0);
                     break;
