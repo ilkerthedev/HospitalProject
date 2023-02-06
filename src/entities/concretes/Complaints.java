@@ -59,10 +59,10 @@ public class Complaints {
         Complaints complaint3 = new Complaints(3, "Zehirlenme");
         Complaints complaint4 = new Complaints(4, "Kalp Krizi");
         Complaints complaint5 = new Complaints(5, "Trawma");
-        Complaints complaint6 = new Complaints(5, "Yaralanma");
-        Complaints complaint7 = new Complaints(5, "Bel Agrisi");
-        Complaints complaint8 = new Complaints(5, "Gögüs Agrisi");
-        Complaints complaint9 = new Complaints(5, "Iltihap");
+        Complaints complaint6 = new Complaints(6, "Yaralanma");
+        Complaints complaint7 = new Complaints(7, "Bel Agrisi");
+        Complaints complaint8 = new Complaints(8, "Gögüs Agrisi");
+        Complaints complaint9 = new Complaints(9, "Iltihap");
 
         complaintsList.add(complaint1);
         complaintsList.add(complaint2);

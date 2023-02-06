@@ -50,7 +50,7 @@ public class PatientMenuManager extends MenuManager implements MenuService {
             System.out.println("5-Öncelige Göre Arama"); //(Acil,Poliklinik,Rutin)
             System.out.println("6-TC No ya Göre Arama"); // TC No, gecmis tüm kayitlar
             System.out.println("7-Randevu No ya Göre Arama"); //Randevu no sadece o kayit
-            //System.out.println("8-Cinsiyete Göre Arama"); //(Erkek,Kadin) //Sonra yapiliacak
+            System.out.println("8-Cinsiyete Göre Arama");
             System.out.println("9-Ana Menu ");
             System.out.println("0-CIKIS");
             System.out.println("\nSeçiminiz: ");
@@ -88,9 +88,9 @@ public class PatientMenuManager extends MenuManager implements MenuService {
                 case 7:
                     search(4);
                     break;
-//                case 8:
-//                    search(5); //Cinsiyete göre arama - sonra yapi uyarlanacak
-//                    break;
+                 case 8:
+                     search(5);
+                     break;
                 case 9:
                     Start.start();
                     break;
@@ -188,6 +188,30 @@ public class PatientMenuManager extends MenuManager implements MenuService {
 
             for (Patients w : patientsList) {
                 if (w.getId().equals(id)) {
+                    flag++;
+                    System.out.printf("%-14s  %-15s  %-15s  %-14s  %-14s  %-9s  %-13s %-14s %-16s\n", w.getId(), w.getFirstName(), w.getLastName(), w.getTcNo(), w.getBirthDate(), w.getGender(), w.getPriority(), w.getComplaint(), w.getLastStatus());
+                }
+            }
+        } else if (choise == 5) {
+            System.out.println("Hangi cinsiyet için arama yapmak istiyorsunuz?(1-Erkek, 2-Kadın)");
+            System.out.println("\nSeçiminiz: ");
+            id = inp.next().replaceAll("[^0-9]","");
+
+            if (id.equals("1")){
+                id = "Erkek";
+            } else if (id.equals("2")) {
+                id = "Kadin";
+            }else {
+                System.out.println("Yanlış tuşlama yaptınız!");
+                String s = "Bir üst menüye yönlendiriliyorsunuz...";
+                Slow.slowPrint(s,30);
+            }
+
+            System.out.printf("%-14s  %-15s  %-15s  %-14s  %-14s  %-9s  %-13s %-14s %-16s\n", "Randevu Kodu", "Hasta Ad", "Hasta Soyad", "TC NO", "Dogum Tarihi", "Cinsiyet", "Aciliyet", "Sikayet", "Islem Durumu");
+            System.out.printf("%-14s  %-15s  %-15s  %-14s  %-14s  %-9s  %-13s %-14s %-16s\n", "----------", "--------", "-----------", "-----", "------------", "--------", "--------", "-------", "------------");
+
+            for (Patients w:patientsList){
+                if (w.getGender().equals(id)){
                     flag++;
                     System.out.printf("%-14s  %-15s  %-15s  %-14s  %-14s  %-9s  %-13s %-14s %-16s\n", w.getId(), w.getFirstName(), w.getLastName(), w.getTcNo(), w.getBirthDate(), w.getGender(), w.getPriority(), w.getComplaint(), w.getLastStatus());
                 }
