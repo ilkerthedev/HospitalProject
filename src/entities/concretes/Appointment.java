@@ -16,7 +16,6 @@ public class Appointment extends EntityBase {
     private String appointmentDate;
     private String appointmentTime;
 
-
     public Appointment(LocalDateTime createdDate) {
         super(createdDate);
     }
